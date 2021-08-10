@@ -3,9 +3,9 @@ import Artist from './Artist';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function ArtistList({ artist }) {
-  if(artist) {
-    const artistResult = artist.map((artist) => (
+export default function ArtistList({ artists }) {
+  if(artists) {
+    const artistResult = artists.map((artist) => (
       <>
         <li key={artist.id}>
           <Link>
@@ -25,12 +25,10 @@ export default function ArtistList({ artist }) {
 }
 
 ArtistList.propTypes = {
-  artist: PropTypes.arrayOf(
+  artists: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      birthday: PropTypes.string.isRequired,
       country: PropTypes.string.isRequired,
-      genre: PropTypes.string.isRequired
     })
   )
 };
