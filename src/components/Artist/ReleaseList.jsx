@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Release from './Release';
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { mungeReleases, releaseSearch } from '../../services/musicApi';
+import { getArtWork, mungeReleases, releaseSearch } from '../../services/musicApi';
 
 export default function ReleaseList() {
   const [releases, setReleases] = useState([]);
