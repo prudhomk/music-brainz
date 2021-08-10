@@ -9,3 +9,18 @@ export async function artistSearch(query) {
   const artists = await res.json();
   return artists;
 }
+
+
+
+export function mungeArtist(artists) {
+  const data = artists.map(artist => 
+  {{
+    return {
+      id: artist.artists[0].id,
+      artist: artist.artists[0].name,
+      country: artist.artists[0].country,
+    };
+  }}
+  );
+  return data;
+}

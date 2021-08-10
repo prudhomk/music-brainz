@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import MainDisplay from '../MainDisplay';
+import MainDisplay from '../Artist/MainDisplay';
 
 export default function App() {
   return (
