@@ -9,7 +9,6 @@ export default function ArtistList({ artistList }) {
       <>
         <li key={artist.id}>
           <Link to={`/${artist.id}/releases`}>
-
             <Artist {...artist}/>
           </Link>
         </li>;
