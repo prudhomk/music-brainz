@@ -11,8 +11,6 @@ export async function artistSearch(query) {
   return artists.artists;
 }
 
-
-
 export function mungeArtist(artists) {
   const data = artists.map(artist => 
   {{
@@ -25,4 +23,36 @@ export function mungeArtist(artists) {
   }}
   );
   return data;
+}
+
+export async function albumSearch(id) {
+  const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`);
+  const albums = await res.json();
+
+  return albums.releases;
+}
+export function mungeReleases(releases) {
+  const data = releases.map(release =>
+  {{
+
+    return {
+      id: release.id,
+      title: release.title,
+      date: release.date,
+    };
+  }}
+  );
+  return data;
+}
+
+export async function getArtWork(id) {
+  const res = await fetch(`http://coverartarchive.org/release/${id}/front`);
+ 
+  return res;
+}
+
+export async function getRecordings(id) {
+  const res = await fetch(`http://musicbrainz.org/ws/2/recording?release=${id}&fmt=json`);
+
+  return res.json;
 }
