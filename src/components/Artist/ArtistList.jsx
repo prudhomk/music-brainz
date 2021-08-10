@@ -3,12 +3,13 @@ import Artist from './Artist';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function ArtistList({ artists }) {
-  if(artists) {
-    const artistResult = artists.map((artist) => (
+export default function ArtistList({ artistList }) {
+  if(artistList) {
+    const artistResult = artistList.map((artist) => (
       <>
         <li key={artist.id}>
-          <Link>
+          <Link to={`/${artist.id}/releases`}>
+
             <Artist {...artist}/>
           </Link>
         </li>;
@@ -25,7 +26,7 @@ export default function ArtistList({ artists }) {
 }
 
 ArtistList.propTypes = {
-  artists: PropTypes.arrayOf(
+  artistList: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       country: PropTypes.string.isRequired,
