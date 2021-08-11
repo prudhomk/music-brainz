@@ -7,7 +7,7 @@ import RecordingList from './RecordingList';
 
 const server = setupServer(
   rest.get(
-    'http://musicbrainz.org/ws/2/release?artist=<ARTIST_ID>&fmt=json',
+    'http://musicbrainz.org/ws/2/release?artist=id&fmt=json',
     (req, res, ctx) => {
       return res(
         ctx.json(

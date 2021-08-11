@@ -35,6 +35,7 @@ exports[`Main display component snapshot render MainDisplay 1`] = `
       +
     </button>
     <ul
+      class="ArtistList"
       data-testid="artistList"
     />
   </div>

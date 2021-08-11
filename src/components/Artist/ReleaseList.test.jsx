@@ -7,7 +7,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 const server = setupServer(
   rest.get(
-    'http://musicbrainz.org/ws/2/recording?release=<RELEASE_ID>&fmt=json',
+    'http://musicbrainz.org/ws/2/recording?release=id&fmt=json',
     (req, res, ctx) => {
       return res(
         ctx.json(

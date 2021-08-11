@@ -23,10 +23,10 @@ describe('App component', () => {
     expect(display).not.toBeEmptyDOMElement();
 
     const ul = await screen.findByTestId('artistList');
-    expect(ul).toBeEmptyDOMElement();
+    expect(ul).toBeEmptyDOMElement(); 
   });
 
-  it('renders paging', async () => {
+  it('renders paging', () => {
     render(
       <MemoryRouter>
         <App />
@@ -41,6 +41,6 @@ describe('App component', () => {
     const decrement = screen.getByTestId('decrement');
     userEvent.click(decrement);
     expect(page).toContainHTML('<span data-testid="page">Page: 1</span>');
- 
+      
   });
 });
