@@ -5,7 +5,7 @@ import { artistSearch, mungeArtist } from '../../services/musicApi';
 import ArtistList from '../Artist/ArtistList';
 
 export default function MainDisplay() {
-  const [offSet, setOffSet] = useState(5);
+  const [offSet, setOffSet] = useState(0);
   const [page, setPage] = useState(1);
   const [artist, setArtist] = useState('');
   const [loading, setLoading] = useState(true);
@@ -23,9 +23,18 @@ export default function MainDisplay() {
     setArtist(target.value);
   };
 
-  const handleClick = async (e) => {
-    setPage((prevPage) => prevPage +1);
-    setOffSet((prevOffSet) => prevOffSet +5);
+  const handleIncrement = async (e) => {
+    setPage((prevPage) => prevPage + 1);
+    setOffSet((prevOffSet) => prevOffSet + 5);
+    const query = await artistSearch(artist, offSet);
+
+    const searchedArtist = await mungeArtist(query);
+    setArtistList(searchedArtist);
+  };
+
+  const handleDecrement = async (e) => {
+    setPage((prevPage) => prevPage - 1);
+    setOffSet((prevOffSet) => prevOffSet - 5);
     const query = await artistSearch(artist, offSet);
 
     const searchedArtist = await mungeArtist(query);
@@ -50,11 +59,11 @@ export default function MainDisplay() {
     
       <button 
         disabled={page <= 1}
-        onClick={() => setPage((prevPage) => prevPage - 1)}>
-                &lt;
+        onClick={handleDecrement}>
+                -
       </button> 
         Page: {page}
-      <button onClick={handleClick}>
+      <button onClick={handleIncrement}>
       +
       </button>
       <ArtistList artistList={artistList}/>

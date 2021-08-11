@@ -25,8 +25,8 @@ export function mungeArtist(artists) {
   return data;
 }
 
-export async function releaseSearch(id, page) {
-  const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json&page=${page}`);
+export async function releaseSearch(id, offset) {
+  const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json&limit=5&offset=${offset}`);
   const releases = await res.json();
 
   return releases.releases;
