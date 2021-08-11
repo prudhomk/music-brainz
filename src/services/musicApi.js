@@ -4,8 +4,8 @@ const albumCoverUrl = 'http://coverartarchive.org/release/<RELEASE_ID>/front';
 const songsUrl = 'http://musicbrainz.org/ws/2/recording?release=<RELEASE_ID>&fmt=json';
 const lyricsUrl = 'https://api.lyrics.ovh/v1/<ARTIST>/<TITLE>';
 
-export async function artistSearch(query) {
-  const res = await fetch(`http://musicbrainz.org/ws/2/artist?query=${query}&fmt=json&limit=25`);
+export async function artistSearch(query, offset) {
+  const res = await fetch(`http://musicbrainz.org/ws/2/artist?query=${query}&fmt=json&limit=5&offset=${offset}`);
   const artists = await res.json();
 
   return artists.artists;
@@ -25,12 +25,13 @@ export function mungeArtist(artists) {
   return data;
 }
 
-export async function releaseSearch(id) {
-  const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`);
+export async function releaseSearch(id, page) {
+  const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json&page=${page}`);
   const releases = await res.json();
 
   return releases.releases;
 }
+
 export function mungeReleases(releases) {
   const data = releases.map(release =>
   {{
@@ -47,12 +48,26 @@ export function mungeReleases(releases) {
 
 export async function getArtWork(id) {
   const res = await fetch(`http://coverartarchive.org/release/${id}/front`);
- 
-  return res;
+  if(res.status === 200) return res.url;
+  return 'Nothing here';
 }
 
 export async function getRecordings(id) {
   const res = await fetch(`http://musicbrainz.org/ws/2/recording?release=${id}&fmt=json`);
+  const recordings = await res.json();
+  console.log(recordings);
+  return recordings.recordings;
+}
 
-  return res.json;
+
+export function mungeRecordings(recordings) {
+  const data = recordings.map(recording => 
+  {{
+    return { 
+      id: recording.id,
+      title: recording.title,
+    };
+  }}
+  );
+  return data;
 }
