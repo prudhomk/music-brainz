@@ -47,8 +47,8 @@ export function mungeReleases(releases) {
 
 export async function getArtWork(id) {
   const res = await fetch(`http://coverartarchive.org/release/${id}/front`);
- 
-  return res;
+  if(res.status === 200) return res.url;
+  return 'Nothing here';
 }
 
 export async function getRecordings(id) {
