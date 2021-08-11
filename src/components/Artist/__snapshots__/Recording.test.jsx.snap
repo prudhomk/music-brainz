@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recording component snapshot render Recording 1`] = `
+<DocumentFragment>
+  <h1>
+    title
+  </h1>
+</DocumentFragment>
+`;

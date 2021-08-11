@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main display component snapshot render RecordingList 1`] = `
+<DocumentFragment>
+  <h1>
+    Recording List
+  </h1>
+  <ul />
+</DocumentFragment>
+`;
