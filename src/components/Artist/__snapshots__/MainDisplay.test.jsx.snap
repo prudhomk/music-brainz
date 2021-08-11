@@ -24,7 +24,11 @@ exports[`Main display component snapshot render MainDisplay 1`] = `
     >
       -
     </button>
-    Page: 1
+    <span
+      data-testid="page"
+    >
+      Page: 1
+    </span>
     <button
       data-testid="increment"
     >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent, cleanup } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import { MemoryRouter } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { MemoryRouter } from 'react-router-dom';
 describe('App component', () => {
   
   it('renders App', async () => {
-    const { asFragment } = render(
+    render(
       <MemoryRouter>
         <App />
       </MemoryRouter>
@@ -24,5 +24,23 @@ describe('App component', () => {
 
     const ul = await screen.findByTestId('artistList');
     expect(ul).toBeEmptyDOMElement();
+  });
+
+  it('renders paging', async () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const increment = screen.getByTestId('increment');
+    const page = screen.getByTestId('page');
+    userEvent.click(increment);
+    expect(page).toContainHTML('<span data-testid="page">Page: 2</span>');
+
+    const decrement = screen.getByTestId('decrement');
+    userEvent.click(decrement);
+    expect(page).toContainHTML('<span data-testid="page">Page: 1</span>');
+ 
   });
 });

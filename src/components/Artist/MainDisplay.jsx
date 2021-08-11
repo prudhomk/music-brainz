@@ -63,7 +63,7 @@ export default function MainDisplay() {
         onClick={handleDecrement}>
                 -
       </button> 
-        Page: {page}
+      <span data-testid="page">Page: {page}</span>
       <button 
         data-testid="increment"
         onClick={handleIncrement}>
