@@ -3,6 +3,7 @@ import Release from './Release';
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { mungeReleases, releaseSearch } from '../../services/musicApi';
+import styles from './ReleaseList.css';
 
 export default function ReleaseList() {
   const [releases, setReleases] = useState([]);
@@ -53,6 +54,7 @@ export default function ReleaseList() {
 
     return (
       <>
+        <h1>List of Releases</h1>
         <button 
           disabled={page <= 1}
           onClick={handleDecrement}>
@@ -63,7 +65,7 @@ export default function ReleaseList() {
     +
         </button>
 
-        <ul>
+        <ul className={styles.ReleaseList}>
           {releaseResult}
         </ul>
       </>

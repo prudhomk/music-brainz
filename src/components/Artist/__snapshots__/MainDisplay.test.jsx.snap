@@ -5,6 +5,9 @@ exports[`Main display component snapshot render MainDisplay 1`] = `
   <div
     data-testid="display"
   >
+    <h1>
+      Artist List
+    </h1>
     <form>
       Artist: 
       <input

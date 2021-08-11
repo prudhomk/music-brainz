@@ -2,7 +2,11 @@
 
 exports[`Main display component snapshot render Artist 1`] = `
 <DocumentFragment>
-  <h1 />
-  <p />
+  <h1>
+    name
+  </h1>
+  <p>
+    country
+  </p>
 </DocumentFragment>
 `;

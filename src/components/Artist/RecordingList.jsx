@@ -33,9 +33,12 @@ export default function RecordingList() {
     ));
 
     return (
-      <ul>
-        {recordingResult}
-      </ul>
+      <>
+        <h1>Recording List</h1>
+        <ul>
+          {recordingResult}
+        </ul>
+      </>
     );
   }
 

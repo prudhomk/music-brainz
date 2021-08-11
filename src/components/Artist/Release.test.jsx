@@ -1,18 +1,22 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import Recording from './Recording';
+import Release from './Release';
 
 
-describe('Recording component snapshot', () => {
+describe('Release component snapshot', () => {
 
-  it('render Recording', () => {
-    const recording = {
-      title: 'title'
+  it('render Release', () => {
+    const release = {
+      id: '1',
+      title: 'title',
+      date: 'date',
+      art: 'image',
     };
+
     act(() => {
       const { asFragment } = render(
-        <Recording {...recording} />
+        <Release {...release} />
       );
       expect(asFragment()).toMatchSnapshot();
     });

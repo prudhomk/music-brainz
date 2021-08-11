@@ -52,6 +52,7 @@ export default function MainDisplay() {
  
   return (
     <div data-testid="display">
+      <h1>Artist List</h1>
       <form onSubmit={handleSubmit}>
     Artist: <input type="text" placeholder="Artist" name="searchTerm" onChange={handleChange}/>
         <button data-testid="submitButton">SEARCH</button>

@@ -2,6 +2,9 @@
 
 exports[`Main display component snapshot render ReleaseList 1`] = `
 <DocumentFragment>
+  <h1>
+    List of Releases
+  </h1>
   <button
     disabled=""
   >
@@ -11,6 +14,8 @@ exports[`Main display component snapshot render ReleaseList 1`] = `
   <button>
     +
   </button>
-  <ul />
+  <ul
+    class="ReleaseList"
+  />
 </DocumentFragment>
 `;

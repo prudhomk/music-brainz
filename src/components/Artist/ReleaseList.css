@@ -1,10 +1,10 @@
-.ArtistList {
+.ReleaseList {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.ArtistList li {
+.ReleaseList li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,9 +18,16 @@
   border: 2px solid black;
   box-shadow: 2px 2px 10px 2px;
   transition: width 0.5s;
+  object-fit: contain;
 }
 
-.ArtistList li:hover {
+.ReleaseList img {
+  object-fit: contain;
+  height: 200px;
+  width: 200px;
+}
+
+.ReleaseList li:hover {
   background-color: pink;
   width: 300px;
 }
