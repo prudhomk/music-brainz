@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import Artist from './Artist';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 
 export default function ArtistList({ artistList }) {
   if(artistList) {
@@ -16,9 +17,11 @@ export default function ArtistList({ artistList }) {
     ));
   
     return (
-      <ul>
-        {artistResult} 
-      </ul>
+      <>
+        <ul>
+          {artistResult} 
+        </ul>
+      </>
     );
   }
   return <h1>No results found</h1>;
