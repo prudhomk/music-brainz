@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import Artist from './Artist';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -18,7 +18,7 @@ export default function ArtistList({ artistList }) {
   
     return (
       <>
-        <ul>
+        <ul data-testid="artistList">
           {artistResult} 
         </ul>
       </>

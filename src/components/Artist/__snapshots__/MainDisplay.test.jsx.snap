@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main display component snapshot render MainDisplay 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="display"
+  >
+    <form>
+      Artist: 
+      <input
+        name="searchTerm"
+        placeholder="Artist"
+        type="text"
+      />
+      <button
+        data-testid="submitButton"
+      >
+        SEARCH
+      </button>
+    </form>
+    <button
+      data-testid="decrement"
+      disabled=""
+    >
+      -
+    </button>
+    Page: 1
+    <button
+      data-testid="increment"
+    >
+      +
+    </button>
+    <ul
+      data-testid="artistList"
+    />
+  </div>
+</DocumentFragment>
+`;

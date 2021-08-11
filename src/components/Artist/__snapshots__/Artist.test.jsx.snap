@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main display component snapshot render Artist 1`] = `
+<DocumentFragment>
+  <h1 />
+  <p />
+</DocumentFragment>
+`;

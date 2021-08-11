@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main display component snapshot render ReleaseList 1`] = `
+<DocumentFragment>
+  <button
+    disabled=""
+  >
+    -
+  </button>
+  Page: 1
+  <button>
+    +
+  </button>
+  <ul />
+</DocumentFragment>
+`;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getArtWork } from '../../services/musicApi';
 
-export default function Release({ id, title, art, date }) {
+export default function Release({ id, title, date }) {
   const [image, setImage] = useState('');
   
   
