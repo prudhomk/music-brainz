@@ -51,22 +51,25 @@ export default function MainDisplay() {
 
  
   return (
-    <>
+    <div data-testid="display">
       <form onSubmit={handleSubmit}>
     Artist: <input type="text" placeholder="Artist" name="searchTerm" onChange={handleChange}/>
-        <button>SEARCH</button>
+        <button data-testid="submitButton">SEARCH</button>
       </form>
     
-      <button 
+      <button
+        data-testid="decrement"
         disabled={page <= 1}
         onClick={handleDecrement}>
                 -
       </button> 
         Page: {page}
-      <button onClick={handleIncrement}>
+      <button 
+        data-testid="increment"
+        onClick={handleIncrement}>
       +
       </button>
       <ArtistList artistList={artistList}/>
-    </>
+    </div>
   );
 }

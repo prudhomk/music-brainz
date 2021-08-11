@@ -2,26 +2,37 @@
 
 exports[`Main display component snapshot render MainDisplay 1`] = `
 <DocumentFragment>
-  <form>
-    Artist: 
-    <input
-      name="searchTerm"
-      placeholder="Artist"
-      type="text"
-    />
-    <button>
-      SEARCH
-    </button>
-  </form>
-  <button
-    disabled=""
+  <div
+    data-testid="display"
   >
-    -
-  </button>
-  Page: 1
-  <button>
-    +
-  </button>
-  <ul />
+    <form>
+      Artist: 
+      <input
+        name="searchTerm"
+        placeholder="Artist"
+        type="text"
+      />
+      <button
+        data-testid="submitButton"
+      >
+        SEARCH
+      </button>
+    </form>
+    <button
+      data-testid="decrement"
+      disabled=""
+    >
+      -
+    </button>
+    Page: 1
+    <button
+      data-testid="increment"
+    >
+      +
+    </button>
+    <ul
+      data-testid="artistList"
+    />
+  </div>
 </DocumentFragment>
 `;

@@ -18,7 +18,7 @@ export default function ArtistList({ artistList }) {
   
     return (
       <>
-        <ul>
+        <ul data-testid="artistList">
           {artistResult} 
         </ul>
       </>
