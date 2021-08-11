@@ -7,16 +7,36 @@ import { mungeReleases, releaseSearch } from '../../services/musicApi';
 export default function ReleaseList() {
   const [releases, setReleases] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [offSet, setOffSet] = useState(5);
+  const [page, setPage] = useState(1);
   const { id } = useParams();
 
 
   useEffect(async () => {
-    const releases = await releaseSearch(id);
+    const releases = await releaseSearch(id, offSet);
     const mungedReleases = await  mungeReleases(releases);
     setReleases(mungedReleases);
     setLoading(false);
 
   }, []);
+
+  const handleIncrement = async () => {
+    setPage((prevPage) => prevPage + 1);
+    setOffSet((prevOffSet) => prevOffSet + 5);
+    const query = await releaseSearch(id, offSet);
+
+    const searchedRelease = await mungeReleases(query);
+    setReleases(searchedRelease);
+  };
+
+  const handleDecrement = async () => {
+    setPage((prevPage) => prevPage - 1);
+    setOffSet((prevOffSet) => prevOffSet - 5);
+    const query = await releaseSearch(id, offSet);
+
+    const searchedRelease = await mungeReleases(query);
+    setReleases(searchedRelease);
+  };
 
 
   if(releases) {
@@ -32,9 +52,21 @@ export default function ReleaseList() {
     ));
 
     return (
-      <ul>
-        {releaseResult}
-      </ul>
+      <>
+        <button 
+          disabled={page <= 1}
+          onClick={handleDecrement}>
+              -
+        </button> 
+      Page: {page}
+        <button onClick={handleIncrement}>
+    +
+        </button>
+
+        <ul>
+          {releaseResult}
+        </ul>
+      </>
     );
   }
   
