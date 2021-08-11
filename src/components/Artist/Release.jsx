@@ -8,7 +8,6 @@ export default function Release({ id, title, art, date }) {
   
   useEffect(async () => {
     const art = await getArtWork(id);
-    console.log(art);
     await setImage(art);
  
   }, []);

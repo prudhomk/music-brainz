@@ -31,6 +31,7 @@ export async function releaseSearch(id) {
 
   return releases.releases;
 }
+
 export function mungeReleases(releases) {
   const data = releases.map(release =>
   {{
@@ -53,6 +54,20 @@ export async function getArtWork(id) {
 
 export async function getRecordings(id) {
   const res = await fetch(`http://musicbrainz.org/ws/2/recording?release=${id}&fmt=json`);
+  const recordings = await res.json();
+  console.log(recordings);
+  return recordings.recordings;
+}
 
-  return res.json;
+
+export function mungeRecordings(recordings) {
+  const data = recordings.map(recording => 
+  {{
+    return { 
+      id: recording.id,
+      title: recording.title,
+    };
+  }}
+  );
+  return data;
 }

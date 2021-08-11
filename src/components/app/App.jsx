@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MainDisplay from '../Artist/MainDisplay';
 import ReleaseList from '../Artist/ReleaseList';
+import RecordingList from '../Artist/RecordingList';
 
 export default function App() {
   return (
@@ -13,6 +14,10 @@ export default function App() {
 
       <Route path="/:id/releases">
         <ReleaseList />
+      </Route>
+
+      <Route path="/:id/recordings">
+        <RecordingList />
       </Route>
 
     </Switch>
